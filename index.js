@@ -63,6 +63,11 @@ const resolvers = {
         category: (parent, args, context) => {
             const {id} = args
             return categories.find(category => category.id === id)
+        },
+    },
+    Category: {
+        products:(parent, args, context) => {
+            console.log(parent)
         }
     }
 }

@@ -67,7 +67,9 @@ const resolvers = {
     },
     Category: {
         products:(parent, args, context) => {
-            console.log(parent)
+            // console.log(parent)
+            const categoryId = parent.id
+            return products.filter(product => product.categoryId === categoryId)
         }
     }
 }

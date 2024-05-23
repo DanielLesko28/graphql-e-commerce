@@ -58,6 +58,10 @@ const resolvers = {
         },
         categories: () => {
             return categories
+        },
+        category: (parent, args, context) => {
+            const {id} = args
+            return categories.find(category => category.id === id)
         }
     }
 }

@@ -8,12 +8,12 @@ exports.Query = {
     floatNum: () => {
         return 28.7
     },
-    products: (parent, args, context) => {
-        const {products} = context
+    products: (parent, args, {products}) => {
+     
         return products
     },
-    product: (parent, args, context ) => {
-        const {products} = context
+    product: (parent, args, {products} ) => {
+      
         // console.log(args)
         const productId = args.id
         const product = products.find(singleProduct => singleProduct.id === productId)

@@ -1,5 +1,3 @@
-const {categories, products} = require('../data')
-
 exports.Query = {
     hello: () => {
         return 'Hello Wworld'
@@ -10,10 +8,12 @@ exports.Query = {
     floatNum: () => {
         return 28.7
     },
-    products: () => {
+    products: (parent, args, context) => {
+        const {products} = context
         return products
     },
     product: (parent, args, context ) => {
+        const {products} = context
         // console.log(args)
         const productId = args.id
         const product = products.find(singleProduct => singleProduct.id === productId)
@@ -22,11 +22,13 @@ exports.Query = {
         return product
 
     },
-    categories: () => {
+    categories: (parent, args, context) => {
+        const {categories} = context
         return categories
     },
     category: (parent, args, context) => {
         const {id} = args
+        const {categories} = context
         return categories.find(category => category.id === id)
     },
 }
